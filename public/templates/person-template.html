@@ -1,0 +1,73 @@
+
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Your registry</h1>
+      <p>Add your key to the registry and verify received vaccinations, or verify
+      vaccinations others have shared with you.</p>
+      <p>
+        <small>
+          As one of the goals of this registry is eliminate the problems
+          that arise when the "Impfpass" is lost, generating a new keypair
+          as it is done in this implementation is not possible. The private key
+          can be lost aswell, which also results in the information being
+          unreadable. <br />
+          This can however be solved if the used keypair is derived from a
+          secret, that only the vaccinated person can know using a key derivation
+          function. One such secret could be a predefined value signed using the
+          <a href="https://www.handy-signatur.at">"Handy-Signatur"</a>.
+        </small>
+      </p>
+      <p class="mb-5">
+        <small>
+          To encrypt and decrypt and to generate keys this implementation uses
+          <a href="https://github.com/pubkey/eth-crypto">ethereum's crypto library</a>.
+          Since the functionality of the smart contract does not depend on the type
+          of encryption used it can be changed to any other system.
+        </small>
+      <p>
+
+      <small>Only the derived public key will be saved in the registry - don't lose the private key!</small>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="privateKey"
+          placeholder="Your private key" />
+        <div class="input-group-append">
+          <button class="btn btn-primary disableIfRegistered" type="button" id="createNewKeyBtn">Create new Key</button>
+          <button class="btn btn-primary disableIfRegistered" type="button" id="registerBtn">Register</button>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Your public key</span>
+        </div>
+        <input type="text" class="form-control" id="ownPublicKey" aria-describedby="basic-addon3" disabled>
+
+        <div class="input-group-append">
+          <span class="input-group-text bg-danger text-light" id="registerStatus">Not registered</span>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="button" id="refreshVaccButton" disabled>Refresh vaccinations</button>
+    </div>
+  </div>
+
+  <div class="container">
+  <h4>Your vaccinations</h4>
+    <hr>
+  <div class="row flex-row" id="itemlist">
+  </div>
+  <hr>
+  <div>
+    <h4>Vaccinations shared by:</h4>
+    <div class="input-group">
+      <input type="text" class="form-control" id="sharedAddress" placeholder="Address">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="button" id="setSharedAddressBtn">Set</button>
+      </div>
+    </div>
+    <hr>
+    <div class="row flex-row" id="sharedlist">
+    </div>
+    <hr>
+  </div>
+  </div>

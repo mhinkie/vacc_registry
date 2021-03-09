@@ -1,0 +1,40 @@
+<div class="col cardcol">
+  {{#if status}}
+  <div class="card border-success" style="width: 15rem;">
+  {{/if}}
+  {{#unless status}}
+  <div class="card" style="width: 15rem;">
+  {{/unless}}
+    <div class="card-header">
+      <div class="row">
+        <div class="col-1">
+          <img src="img/syringe.svg" width="25rem" height="25rem" />
+        </div>
+        <div class="col">
+          <h5 class="card-title">{{type}}</h5>
+        </div>
+        <div class="col-1">
+          <button type="button" class="close closeButton" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">{{nonce}}</h6>
+      <input type="hidden" class="doseHash" value="{{hash}}">
+
+      {{#if status}}
+      <button class="btn btn-primary btn-sm publishDoseBtn" type="button" disabled>
+        Publish
+      </button>
+      {{/if}}
+      {{#unless status}}
+      <button class="btn btn-primary btn-sm publishDoseBtn" type="button">
+      Publish
+      </button>
+      {{/unless}}
+      <button class="btn btn-secondary btn-sm printDoseBtn" type="button">Print</button>
+    </div>
+  </div>
+</div>

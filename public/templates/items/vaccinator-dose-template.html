@@ -1,0 +1,63 @@
+<!-- -->
+<div class="col cardcol">
+  {{#if verified}}
+  <div class="card border-success" style="width: 20rem;">
+  {{/if}}
+  {{#if processing}}
+  <div class="card" style="width: 20rem;">
+  {{/if}}
+  {{#if verification_failed}}
+  <div class="card border-danger" style="width: 20rem;">
+  {{/if}}
+    <div class="card-header">
+      <div class="row">
+        <div class="col-1">
+          <img src="img/syringe.svg" width="25rem" height="25rem" />
+        </div>
+        <div class="col">
+          <h5 class="card-title">{{type}}</h5>
+        </div>
+        <div class="col-1">
+          <button type="button" class="close closeDoseButton" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">{{nonce}}</h6>
+      <input type="hidden" class="doseHash" value="{{hash}}">
+
+      {{#if verified}}
+      <div class="input-group input-group-sm mb-3">
+        {{#if used}}
+        <input class="form-control form-control-sm patientAddress"
+        type="text" placeholder="Patient address" disabled>
+        {{/if}}
+        {{#unless used}}
+        <input class="form-control form-control-sm patientAddress"
+        type="text" placeholder="Patient address">
+        {{/unless}}
+        <div class="input-group-append">
+          {{#if used}}
+          <button class="btn btn-primary btn-sm vaccinateBtn" type="button" disabled>Vaccinate</button>
+          {{/if}}
+          {{#unless used}}
+          <button class="btn btn-primary btn-sm vaccinateBtn" type="button">Vaccinate</button>
+          {{/unless}}
+        </div>
+      </div>
+      {{/if}}
+      {{#if verification_failed}}
+      <span class="text-danger">
+        <span class="font-weight-bold">Verification failed:</span> {{error_message}}
+      </span>
+      {{/if}}
+      {{#if processing}}
+      <div class="spinner-border text-secondary spinner-border-sm" role="status">
+      </div>
+      <span>Verifying...</span>
+      {{/if}}
+    </div>
+  </div>
+</div>

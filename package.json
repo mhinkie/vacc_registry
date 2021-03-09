@@ -1,0 +1,33 @@
+{
+  "name": "FinalProject",
+  "version": "0.0.1",
+  "description": "Final project with frontend",
+  "scripts": {
+    "build": "true",
+    "serve": "serve -l 8000 public/",
+    "test": "(./node_modules/.bin/ganache-cli -q -p 7545 &); truffle test"
+  },
+  "author": "Smart Contracts; TU Wien",
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.0.1",
+    "browserify": "^16.5.1",
+    "eth-crypto": "^1.6.0",
+    "eth-lib": "^0.1.29",
+    "ganache-cli": "^6.9.1",
+    "serve": "^11.0.0",
+    "truffle": "^5.1.19",
+    "truffle-assertions": "^0.9.2",
+    "web3": "^1.2.1"
+  },
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://git.sc.logic.at/final/e01429186.git"
+  },
+  "keywords": [],
+  "license": "ISC"
+}

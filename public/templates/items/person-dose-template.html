@@ -1,0 +1,40 @@
+<div class="col cardcol">
+  {{#if verified}}
+  <div class="card border-success" style="width: 15rem;">
+  {{/if}}
+  {{#if verifying}}
+  <div class="card" style="width: 15rem;">
+  {{/if}}
+  {{#if error}}
+  <div class="card border-danger" style="width: 15rem;">
+  {{/if}}
+    <div class="card-header">
+      <div class="row">
+        <div class="col-1">
+          <img src="img/syringe.svg" width="25rem" height="25rem" />
+        </div>
+        <div class="col">
+          <h5 class="card-title doseType">{{type}}</h5>
+        </div>
+
+      </div>
+    </div>
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">{{nonce}}</h6>
+      <input type="hidden" class="doseHash" value="{{hash}}">
+      <input type="hidden" class="doseNonce" value="{{fullNonce}}">
+      <input type="hidden" class="doseIndex" value="{{index}}">
+      {{#unless readonly}}
+      {{#if verified}}
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-sm recipientAddress"
+        type="text" placeholder="Recipient">
+        <div class="input-group-append">
+          <button class="btn btn-primary btn-sm discloseBtn" type="button">Disclose</button>
+        </div>
+      </div>
+      {{/if}}
+      {{/unless}}
+    </div>
+  </div>
+</div>

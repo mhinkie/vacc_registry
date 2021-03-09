@@ -1,0 +1,34 @@
+
+
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-4">Vaccinator</h1>
+    <p>Input dose labels and use doses to vaccinate patients.</p>
+  </div>
+</div>
+
+  <div class="container">
+    <div class="input-group mb-3">
+      <select class="custom-select" id="doseType" style="max-width: 13em;">
+        <option value="" selected>Choose...</option>
+        {{#each vaccines}}
+          <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <input type="text" class="form-control" id="labelInfo" placeholder="Label information">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="button" id="verifyDoseBtn">Verify dose</button>
+      </div>
+    </div>
+
+    <hr>
+    <div class="row flex-row" id="itemlist">
+
+
+
+
+    </div>
+
+    <hr>
+
+  </div> <!-- /container -->

@@ -1,0 +1,14 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+  padding-top: 3.5rem;
+}
+
+.qr-code {
+  margin-top:0.5em;
+}
+
+.nav-alert {
+  padding: .2rem 1.25rem;
+  margin-bottom: 0rem;
+  margin-right: 1rem;
+}
